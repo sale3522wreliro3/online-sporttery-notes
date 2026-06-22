@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>再次关注 · 竞彩网 | 信息卡片介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f2ed; /* 米白底 */
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            color: #2c2a27;
+            line-height: 1.75;
+            padding: 2.5rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 880px;
+            width: 100%;
+            background: #fcfaf7;
+            border-radius: 28px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            padding: 2.8rem 2.2rem;
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 540px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+            .page {
+                padding: 1.8rem 1.2rem;
+                border-radius: 20px;
+            }
+        }
+
+        /* ——— typography ——— */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-top: 0.2rem;
+            margin-bottom: 0.5rem;
+            color: #1f1d1a;
+            line-height: 1.25;
+        }
+        h1 small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #7f7a72;
+            margin-left: 0.6rem;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 550;
+            margin: 2.2rem 0 0.75rem 0;
+            color: #36322e;
+            border-left: 4px solid #c9b99a;
+            padding-left: 0.85rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: #8b6f4c;
+            text-decoration: none;
+            border-bottom: 1px solid #d6c8b6;
+            transition: border-color 0.15s, color 0.15s;
+            font-weight: 500;
+        }
+        a:hover {
+            color: #5a4734;
+            border-bottom-color: #8b6f4c;
+        }
+
+        /* ——— hero 卡片区 ——— */
+        .hero-card {
+            background: #eae4db;
+            padding: 2rem 2rem 2rem 2.2rem;
+            border-radius: 20px;
+            margin: 0.5rem 0 1.8rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .hero-text {
+            flex: 2 1 260px;
+        }
+        .hero-text .eyebrow {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7b6f5f;
+            margin-bottom: 0.2rem;
+        }
+        .hero-text h3 {
+            font-size: 1.5rem;
+            font-weight: 580;
+            color: #2b2722;
+            line-height: 1.35;
+        }
+        .hero-text p {
+            color: #3e3a34;
+            margin: 0.6rem 0 0.2rem 0;
+            font-size: 1rem;
+        }
+        .hero-note {
+            flex: 1 1 140px;
+            background: #f3eee8;
+            padding: 1rem 1.2rem;
+            border-radius: 60px 16px 16px 60px;
+            font-size: 0.95rem;
+            border: 1px solid #d9cec0;
+            text-align: center;
+        }
+        .hero-note span {
+            font-weight: 600;
+            color: #5c4c39;
+        }
+
+        /* ——— 卡片网格 ——— */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.5rem;
+            margin: 1.2rem 0 0.8rem 0;
+        }
+        .card-item {
+            background: #ffffff;
+            border: 1px solid #e5ddd3;
+            border-radius: 20px;
+            padding: 1.4rem 1.2rem 1.6rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+        }
+        .card-item .icon-tag {
+            display: inline-block;
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+        }
+        .card-item h4 {
+            font-size: 1.1rem;
+            font-weight: 530;
+            margin-bottom: 0.4rem;
+            color: #2e2a25;
+        }
+        .card-item p {
+            font-size: 0.92rem;
+            color: #4b4640;
+            margin-bottom: 0;
+        }
+        .card-item .small-meta {
+            display: block;
+            margin-top: 0.8rem;
+            font-size: 0.78rem;
+            color: #8f867b;
+            border-top: 1px dashed #dcd3c8;
+            padding-top: 0.5rem;
+        }
+
+        /* ——— 引用提示块 ——— */
+        .insight-block {
+            background: #f3efe9;
+            padding: 1.3rem 1.6rem;
+            border-radius: 18px;
+            margin: 1.8rem 0 1.2rem 0;
+            border-left: 6px solid #b8a38a;
+            position: relative;
+        }
+        .insight-block .label {
+            font-weight: 550;
+            font-size: 0.8rem;
+            letter-spacing: 0.04em;
+            color: #786b5b;
+            text-transform: uppercase;
+        }
+        .insight-block p {
+            margin: 0.3rem 0 0 0;
+        }
+
+        /* ——— 人群卡片（水平） ——— */
+        .audience-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.2rem;
+            margin: 0.8rem 0 1.2rem 0;
+        }
+        .audience-item {
+            background: #faf7f3;
+            border: 1px solid #e4dbd0;
+            border-radius: 40px 12px 12px 40px;
+            padding: 0.5rem 1.2rem 0.5rem 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.95rem;
+            color: #3b3732;
+            flex: 0 1 auto;
+        }
+        .audience-item .emoji-badge {
+            font-size: 1.1rem;
+        }
+
+        /* ——— 自然链接句子 ——— */
+        .link-sentence {
+            font-size: 1rem;
+            background: #f8f4ef;
+            padding: 0.8rem 1.2rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 0.5rem 0 0.2rem 0;
+            border: 1px solid #e0d5c8;
+        }
+        .link-sentence a {
+            font-weight: 550;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e3dace;
+            margin: 2rem 0 0.8rem 0;
+        }
+
+        .faq-mini {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.8rem;
+            margin: 1.2rem 0 0.6rem 0;
+        }
+        .faq-mini dt {
+            font-weight: 550;
+            color: #3f3a33;
+            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+            border-bottom: 1px dotted #d1c6b8;
+            padding-bottom: 0.1rem;
+        }
+        .faq-mini dd {
+            font-size: 0.9rem;
+            color: #555049;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 540px) {
+            h1 { font-size: 1.7rem; }
+            .hero-card { padding: 1.5rem; }
+            .hero-note { border-radius: 16px; }
+            .faq-mini { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <h1>
+        竞彩网<small>持续关注的入口</small>
+    </h1>
+
+    <!-- 主视觉卡片 —— 再次访问・收藏 -->
+    <div class="hero-card">
+        <div class="hero-text">
+            <div class="eyebrow">✦ 收藏夹常驻</div>
+            <h3>信息密度提升 &nbsp; 回访更有理由</h3>
+            <p>将 <strong>竞彩网</strong> 置于书签栏，赛后复盘、数据对比、资讯索引都能更快触达。</p>
+        </div>
+        <div class="hero-note">
+            <span>⬇ 已收藏</span><br>
+            下次直接打开
+        </div>
+    </div>
+
+    <!-- 用途卡片 —— 信息卡片式 -->
+    <h2>日常用途 · 轻量化场景</h2>
+    <div class="card-grid">
+        <div class="card-item">
+            <div class="icon-tag">📋</div>
+            <h4>赛事概览速查</h4>
+            <p>赛程、赔率变化、队伍近期走势，一目了然的卡片布局，减少切换成本。</p>
+            <span class="small-meta">适合赛前快速浏览</span>
+        </div>
+        <div class="card-item">
+            <div class="icon-tag">🗂️</div>
+            <h4>历史数据归档</h4>
+            <p>往期对阵与指数记录整理清晰，便于用户自行回溯趋势，形成个人判断参考。</p>
+            <span class="small-meta">存档价值较高</span>
+        </div>
+        <div class="card-item">
+            <div class="icon-tag">🔔</div>
+            <h4>关注提醒枢纽</h4>
+            <p>「再次访问」场景下，收藏后频繁回看赛前分析与实时动态，信息流更紧凑。</p>
+            <span class="small-meta">适合保持跟踪</span>
+        </div>
+    </div>
+
+    <!-- 适合人群 + 引用块 -->
+    <h2>适合持续关注的用户</h2>
+    <div class="audience-row">
+        <span class="audience-item"><span class="emoji-badge">🔄</span> 经常回查赛果的爱好者</span>
+        <span class="audience-item"><span class="emoji-badge">📊</span> 偏好数据对照的分析型访客</span>
+        <span class="audience-item"><span class="emoji-badge">📌</span> 习惯固定信息源的用户</span>
+    </div>
+
+    <div class="insight-block">
+        <div class="label">📌 使用提示</div>
+        <p>将 <a href="https://online-sporttery.com">竞彩网</a> 加入浏览器书签或手机主屏幕，下次需要查阅赛事信息时，不必重新搜索，直接打开即可看到更新内容。对于需要反复对比的数据场景，固定入口能显著节省时间。</p>
+    </div>
+
+    <!-- 自然链接段落 —— 嵌入句子 -->
+    <p style="margin-top: 1.2rem;">
+        如果你习惯在赛前收集多个来源的信息，完全可以先浏览 <a href="https://online-sporttery.com">竞彩网</a> 的赛程页面，再结合其他渠道做综合判断。它的界面偏向信息卡片式，层级直观，适合那些希望减少信息干扰的访客。
+    </p>
+
+    <hr>
+
+    <h2>常见疑问摘要</h2>
+    <dl class="faq-mini">
+        <dt>页面需要登录才能浏览吗？</dt>
+        <dd>不需要。大部分赛事概览、数据表格可直接访问，无需注册。</dd>
+        <dt>适合在移动端使用吗？</dt>
+        <dd>适配响应式布局，手机浏览器内缩放阅读体验良好，也可添加到桌面。</dd>
+        <dt>更新频率如何？</dt>
+        <dd>赛前及赛中保持动态更新，赛后数据次日归档，适合反复回看。</dd>
+        <dt>可以长期保存页面供日后参考？</dt>
+        <dd>是的。推荐收藏 <a href="https://online-sporttery.com">竞彩网</a>，方便随时调取。</dd>
+    </dl>
+
+    <!-- 再强调一次链接（自然） -->
+    <p style="font-size: 0.92rem; color: #625b53; margin-top: 1.4rem;">
+        ⚡ 若你尚未添加书签，不妨现在就将 <a href="https://online-sporttery.com">竞彩网</a> 存入收藏夹。后续再访问时，页面结构保持一致，信息密度适中，不会频繁变动布局。
+    </p>
+
+    <div style="margin-top: 2rem; border-top: 1px solid #e9dfd4; padding-top: 1rem; font-size: 0.85rem; color: #8d847a; text-align: center;">
+        index · 信息卡片式介绍／持续回访场景
+    </div>
+
+</div>
+</body>
+</html>
